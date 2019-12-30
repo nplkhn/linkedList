@@ -1,112 +1,13 @@
 #include <iostream>
-#include <string>
+#include "n_list.h"
 
 using namespace std;
 
-struct map{
-    string key;
-    int value;
-    map* next = nullptr;
-    map(){
-        key = "";
-        value = 0;
-    }
-    map(string key, int value){
-        map::key = key;
-        map::value = value;
-    }
-};
 
-class n_linkedList {
-public:
-    n_linkedList();
-    n_linkedList(string, int);
-    void add(string key, int value);
-    void list_size();
-    void show();
-    void update(string aim_key, int aim_value, string new_key, int new_value);
-    void del(string key, int value);
-private:
-    map* find(string key, int value);
-    map* head = nullptr;
-    int size;
-
-
-};
-
-n_linkedList::n_linkedList() {
-    this->size = 1;
-    map* current = new map;
-    this->head = current;
-}
-
-n_linkedList::n_linkedList(string key, int value) {
-    this->size = 1;
-    map* current = new map(key, value);
-    this->head = current;
-}
-
-void n_linkedList::add(string key, int value) {
-    this->size++;
-    map* current = this->head;
-    while (current->next){
-        current = current->next;
-    }
-    map* new_member = new map(key, value);
-    current->next = new_member;
-}
-
-void n_linkedList::list_size(){
-    cout << this->size << endl;
-}
-
-void n_linkedList::show() {
-    map* current = this->head;
-    while (current){
-        cout << current->key << ": " << current->value << endl;
-        current = current->next;
-    }
-}
-
-void n_linkedList::update(string aim_key, int aim_value, string new_key, int new_value) {
-    map* aim = this->find(aim_key, aim_value);
-    if (aim){
-        aim->key = new_key;
-        aim->value = new_value;
-    }
-    return;
-}
-
-map* n_linkedList::find(string key, int value) {
-    map* current = this->head;
-    while (current) {
-        if (current->key == key and current->value == value){
-            return current;
-        }
-        current = current->next;
-    }
-}
-
-void n_linkedList::del(string key, int value) {
-    map* current = this->head, *prev;
-    if (current->key == key and current->value == value){
-        this->head = current->next;
-        free(current);
-        return;
-    }
-    while (current->key != key and current->value != value){
-        prev = current;
-        current = current->next;
-    }
-    if (current){
-        prev = current->next;
-        free(current);
-    }
-}
 
 int main() {
     cout << "Testing add method" << endl;
-    n_linkedList list("Nikita", 1);
+    n_list list("Nikita", 1);
     list.add("Karina", 1);
     list.add("Maria", 1);
     list.add("Egor", 2);

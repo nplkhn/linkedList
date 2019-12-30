@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/main.cpp" "/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/cmake-build-debug/CMakeFiles/coursera_project.dir/main.cpp.o"
+  "/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/map.cpp" "/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/cmake-build-debug/CMakeFiles/coursera_project.dir/map.cpp.o"
+  "/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/n_list.cpp" "/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/cmake-build-debug/CMakeFiles/coursera_project.dir/n_list.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

@@ -150,6 +150,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/coursera_project.dir/build.make CMakeFiles/coursera_project.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+map.o: map.cpp.o
+
+.PHONY : map.o
+
+# target to build an object file
+map.cpp.o:
+	$(MAKE) -f CMakeFiles/coursera_project.dir/build.make CMakeFiles/coursera_project.dir/map.cpp.o
+.PHONY : map.cpp.o
+
+map.i: map.cpp.i
+
+.PHONY : map.i
+
+# target to preprocess a source file
+map.cpp.i:
+	$(MAKE) -f CMakeFiles/coursera_project.dir/build.make CMakeFiles/coursera_project.dir/map.cpp.i
+.PHONY : map.cpp.i
+
+map.s: map.cpp.s
+
+.PHONY : map.s
+
+# target to generate assembly for a file
+map.cpp.s:
+	$(MAKE) -f CMakeFiles/coursera_project.dir/build.make CMakeFiles/coursera_project.dir/map.cpp.s
+.PHONY : map.cpp.s
+
+n_list.o: n_list.cpp.o
+
+.PHONY : n_list.o
+
+# target to build an object file
+n_list.cpp.o:
+	$(MAKE) -f CMakeFiles/coursera_project.dir/build.make CMakeFiles/coursera_project.dir/n_list.cpp.o
+.PHONY : n_list.cpp.o
+
+n_list.i: n_list.cpp.i
+
+.PHONY : n_list.i
+
+# target to preprocess a source file
+n_list.cpp.i:
+	$(MAKE) -f CMakeFiles/coursera_project.dir/build.make CMakeFiles/coursera_project.dir/n_list.cpp.i
+.PHONY : n_list.cpp.i
+
+n_list.s: n_list.cpp.s
+
+.PHONY : n_list.s
+
+# target to generate assembly for a file
+n_list.cpp.s:
+	$(MAKE) -f CMakeFiles/coursera_project.dir/build.make CMakeFiles/coursera_project.dir/n_list.cpp.s
+.PHONY : n_list.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +216,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... map.o"
+	@echo "... map.i"
+	@echo "... map.s"
+	@echo "... n_list.o"
+	@echo "... n_list.i"
+	@echo "... n_list.s"
 .PHONY : help
 
 
