@@ -70,8 +70,11 @@ void n_linkedList::show() {
 
 void n_linkedList::update(string aim_key, int aim_value, string new_key, int new_value) {
     map* aim = this->find(aim_key, aim_value);
-    aim->key = new_key;
-    aim->value = new_value;
+    if (aim){
+        aim->key = new_key;
+        aim->value = new_value;
+    }
+    return;
 }
 
 map* n_linkedList::find(string key, int value) {
@@ -122,6 +125,5 @@ int main() {
     cout << endl;
     list.del("Alexandra", 2);
     list.show();
-    cout << "\nTesting find method" << endl;
     return 0;
 }
