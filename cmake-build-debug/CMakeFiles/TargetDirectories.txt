@@ -1,0 +1,3 @@
+/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/cmake-build-debug/CMakeFiles/coursera_project.dir
