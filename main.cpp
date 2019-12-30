@@ -85,11 +85,19 @@ map* n_linkedList::find(string key, int value) {
 }
 
 void n_linkedList::del(string key, int value) {
-    map* current = this->head;
-    while(current){
-        if (current->next->key == key and current->next->value == value){
-            current = current->next->next;
-        }
+    map* current = this->head, *prev;
+    if (current->key == key and current->value == value){
+        this->head = current->next;
+        free(current);
+        return;
+    }
+    while (current->key != key and current->value != value){
+        prev = current;
+        current = current->next;
+    }
+    if (current){
+        prev = current->next;
+        free(current);
     }
 }
 
