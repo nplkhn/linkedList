@@ -83,12 +83,6 @@
 		<Unit filename="/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/main.cpp">
 			<Option target="coursera_project"/>
 		</Unit>
-		<Unit filename="/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/map.cpp">
-			<Option target="coursera_project"/>
-		</Unit>
-		<Unit filename="/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/map.h">
-			<Option target="coursera_project"/>
-		</Unit>
 		<Unit filename="/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/n_list.cpp">
 			<Option target="coursera_project"/>
 		</Unit>

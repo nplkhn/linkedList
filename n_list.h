@@ -24,6 +24,7 @@ public:
     void show();
     void update(std::string, int, std::string, int);
     void del(std::string, int);
+    void del(std::string);
 private:
     map* find(std::string, int);
     map* head = nullptr;

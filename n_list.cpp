@@ -75,12 +75,38 @@ void n_list::del(std::string key, int value) {
         free(current);
         return;
     }
-    while (current->key != key and current->value != value){
+    while (current){
+        if (current->key == key and current->value == value){
+            prev->next = current->next;
+            free(current);
+            break;
+        }
         prev = current;
         current = current->next;
+
     }
-    if (current){
-        prev = current->next;
-        free(current);
+}
+
+void n_list::del(std::string key) {
+    map* current = this->head, *prev = this->head;
+
+    while (current){
+        if (current->key == key and current == prev){
+            map* temp = current->next;
+            this->head = temp;
+            free(current);
+            current = this->head;
+            prev = this->head;
+
+        } else if (current->key == key){
+            map* temp;
+            temp = current->next;
+            free(current);
+            current = temp;
+            prev->next = current;
+        } else {
+            prev = current;
+            current = current->next;
+        }
     }
 }
