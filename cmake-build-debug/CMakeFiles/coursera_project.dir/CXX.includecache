@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/main.cpp
+iostream
+-
+n_list.h
+/Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/n_list.h
+
 /Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/n_list.cpp
 n_list.h
 /Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/n_list.h
@@ -14,5 +20,7 @@ iostream
 
 /Users/nikitaplakhin/Desktop/Programming/Projects/C++/coursera_project/n_list.h
 string
+-
+stdio.h
 -
 

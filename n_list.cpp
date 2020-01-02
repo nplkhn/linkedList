@@ -5,78 +5,98 @@
 #include "n_list.h"
 #include <iostream>
 
-map::map() {
-    key = "";
-    value = 0;
+Date::Date() {
+    date = "";
+    event = "";
+    d = 0;
+    m = 0;
+    y = 0;
 }
 
-map::map(std::string key, int value) {
-    map::key = key;
-    map::value = value;
+Date::Date(std::string date, std::string event) {
+    Date::date = date;
+    Date::event = event;
+    this->parse(date);
+}
+
+void Date::parse(std::string date) {
+    sscanf(date.c_str(), "%2d/%2d/%4d", &d, &m, &y);
+}
+
+void Date::info() {
+    std::cout << d/10 << d%10 << '/' << m/10 << m%10 << '/' << y/1000 << y/100%10 << y/10%10
+    << y%10 << ": " << event << std::endl;
 }
 
 n_list::n_list() {
+    this->size = 0;
+    this->head = nullptr;
+}
+
+n_list::n_list(std::string date, std::string event) {
     this->size = 1;
-    map* current = new map;
+    Date* current = new Date(date, event);
     this->head = current;
 }
 
-n_list::n_list(std::string key, int value) {
-    this->size = 1;
-    map* current = new map(key, value);
-    this->head = current;
-}
-
-void n_list::add(std::string key, int value) {
+void n_list::add(std::string date, std::string event) {
     this->size++;
-    map* current = this->head;
-    while (current->next){
-        current = current->next;
+
+    if (this->head == nullptr){
+        Date* new_member = new Date(date, event);
+        this->head = new_member;
+    } else {
+        Date* current = this->head;
+        while (current->next){
+            current = current->next;
+        }
+        Date* new_member = new Date(date, event);
+        current->next = new_member;
     }
-    map* new_member = new map(key, value);
-    current->next = new_member;
 }
 
-void n_list::list_size(){
-    std::cout << this->size << std::endl;
+int n_list::list_size(){
+    return size;
 }
 
 void n_list::show() {
-    map* current = this->head;
+    Date* current = this->head;
     while (current){
-        std::cout << current->key << ": " << current->value << std::endl;
+        current->info();
         current = current->next;
     }
 }
 
-void n_list::update(std::string aim_key, int aim_value, std::string new_key, int new_value) {
-    map* aim = this->find(aim_key, aim_value);
+void n_list::update(std::string aim_date, std::string aim_event, std::string new_date, std::string new_event) {
+    Date* aim = this->find(aim_date, aim_event);
     if (aim){
-        aim->key = new_key;
-        aim->value = new_value;
+        aim->date = new_date;
+        aim->event = new_event;
+        aim->parse(new_date);
     }
-    return;
 }
 
-map* n_list::find(std::string key, int value) {
-    map* current = this->head;
+Date* n_list::find(std::string date, std::string event) {
+    Date* current = this->head;
     while (current) {
-        if (current->key == key and current->value == value){
+        if (current->date == date and current->event == event){
             return current;
         }
         current = current->next;
     }
+    Date* empty = nullptr;
+    return empty;
 }
 
-void n_list::del(std::string key, int value) {
-    map* current = this->head, *prev;
-    if (current->key == key and current->value == value){
+void n_list::del(std::string date, std::string event) {
+    Date* current = this->head, *prev;
+    if (current->date == date and current->event == event){
         this->head = current->next;
         free(current);
         return;
     }
     while (current){
-        if (current->key == key and current->value == value){
+        if (current->date == date and current->event == event){
             prev->next = current->next;
             free(current);
             break;
@@ -87,19 +107,67 @@ void n_list::del(std::string key, int value) {
     }
 }
 
-void n_list::del(std::string key) {
-    map* current = this->head, *prev = this->head;
+void n_list::del_all_same_events(std::string event) {
+    Date* current = this->head, *prev = this->head;
 
     while (current){
-        if (current->key == key and current == prev){
-            map* temp = current->next;
+        if (current->event == event and current == prev){
+            Date* temp = current->next;
             this->head = temp;
             free(current);
             current = this->head;
             prev = this->head;
 
-        } else if (current->key == key){
-            map* temp;
+        } else if (current->event == event){
+            Date* temp;
+            temp = current->next;
+            free(current);
+            current = temp;
+            prev->next = current;
+        } else {
+            prev = current;
+            current = current->next;
+        }
+    }
+}
+
+void n_list::del_all_events_in_same_date(std::string date) {
+    Date* current = this->head, *prev = this->head;
+
+    while (current){
+        if (current->event == date and current == prev){
+            Date* temp = current->next;
+            this->head = temp;
+            free(current);
+            current = this->head;
+            prev = this->head;
+
+        } else if (current->event == date){
+            Date* temp;
+            temp = current->next;
+            free(current);
+            current = temp;
+            prev->next = current;
+        } else {
+            prev = current;
+            current = current->next;
+        }
+    }
+}
+
+void n_list::del_all_events_in_same_date(int d, int m, int y) {
+    Date* current = this->head, *prev = this->head;
+
+    while (current){
+        if (current->d == d and current->m == m and current->y == y and current == prev){
+            Date* temp = current->next;
+            this->head = temp;
+            free(current);
+            current = this->head;
+            prev = this->head;
+
+        } else if (current->d == d and current->m == m and current->y == y){
+            Date* temp;
             temp = current->next;
             free(current);
             current = temp;

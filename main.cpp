@@ -6,32 +6,34 @@ using namespace std;
 
 
 int main() {
-    cout << "Testing add method" << endl;
-    n_list list("Nikita", 1);
-    list.add("Karina", 1);
-    list.add("Karina", 2);
-    list.add("Karina", 3);
-    list.add("Karina", 4);
-    list.add("Karina", 5);
-    list.add("Maria", 1);
-    list.add("Egor", 2);
-    list.add("Alexandra", 2);
-    list.add("Dmitriy", 3);
-    list.add("Anastasia", 4);
-    list.list_size();
-    list.show();
-    cout << "\nTesting update method" << endl;
-    list.update("Karina", 1, "Karina", 10);
-    list.show();
-    list.update("Viola", 1, "Karina", 10);
-    cout << "\nTesting del method" << endl;
-    list.del("Nikita", 1);
+    using namespace std;
+    n_list list("31/12/2019", "Came to Grodno");
+    cout << "test 'add' method:" << endl;
+    list.add("31/12/2020", "Drink whiskey and cola");
+    list.add("01/01/2020", "Celebrated New year eye");
+    list.add("01/01/2020", "Dance on the table");
+    list.add("01/01/2020", "Drink whiskey and cola");
+    list.add("02/01/2020", "Drink whiskey and cola");
+    list.add("02/01/2020", "Came home");
+    cout << "Where are " << list.list_size() << " members: " << endl;
     list.show();
     cout << endl;
-    list.del("Alexandra", 2);
+
+    cout << "test 'update' method:" << endl;
+    list.update("02/01/2020", "Drink whiskey and cola", "02/01/2020", "Drink cola");
     list.show();
     cout << endl;
-    list.del("Karina");
+
+    cout << "test 'del' method:" << endl;
+    list.del("01/01/2020", "Dance on the table");
     list.show();
+    cout << endl;
+
+    cout << "test 'del_all_same_events' method:" << endl;
+    list.del_all_same_events("Drink whiskey and cola");
+    list.show();
+    cout << endl;
+
+
     return 0;
 }
